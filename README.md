@@ -2,13 +2,20 @@
 
 ---
 
-## 📝 Deskripsi Proyek
+## Deskripsi Proyek
 
-Project ini bertujuan untuk membangun data pipeline sederhana menggunakan proses **ETL (Extract, Transform, Load)**. Data diambil dari situs web bertema retail menggunakan web scraping, kemudian diolah dengan Pandas, dan akhirnya dimuat ke dalam database PostgreSQL.
+Project ini bertujuan untuk membangun data pipeline sederhana menggunakan proses **ETL (Extract, Transform, Load)**. Sumber data diambil dari kategori **tas (bags)** di website **Zalora Indonesia** menggunakan web scraping, kemudian diolah dengan Pandas, dan akhirnya dimuat ke dalam database PostgreSQL.
 
 ---
 
-## 📌 Struktur Proyek
+## Tujuan
+- Mengambil data produk tas dari website e-commerce (Zalora).
+- Melakukan eksplorasi dan pembersihan data.
+- Menyimpan data ke dalam database PostgreSQL.
+
+---
+
+## Struktur Proyek
 
 - `coda_P0M1_nabila_sulistiowati.ipynb` : Notebook berisi proses scraping & transformasi data
 - `zalora_bag2.csv` : Data hasil transformasi siap untuk dimuat ke database
@@ -16,7 +23,7 @@ Project ini bertujuan untuk membangun data pipeline sederhana menggunakan proses
 
 ---
 
-## 🔧 Tools & Library yang Digunakan
+## Tools & Library yang Digunakan
 
 - Python 3.x
 - Jupyter Notebook
@@ -27,32 +34,26 @@ Project ini bertujuan untuk membangun data pipeline sederhana menggunakan proses
 
 ---
 
-## 🚀 Langkah Pengerjaan
+## Langkah Pengerjaan
 
-### A. Extract - Web Scraping
-- Data diambil dari situs web bertema retail (misalnya books.toscrape.com)
-- Menggunakan `requests` dan `BeautifulSoup` untuk mengambil data dari HTML
+### A. Extract
+- Scraping data produk tas dari Zalora menggunakan `requests` & `BeautifulSoup`.
+- Diambil minimal 50 produk dan 4 atribut utama (nama produk, harga, brand, rating, dsb).
 
-### B. Transform - Data Wrangling
-- Dilakukan di Jupyter Notebook menggunakan Pandas
-- Mengecek dan membersihkan:
-- Tipe data sesuai dengan nilainya
-- Kolom numerik hanya berisi angka (`price`, `rating`, dll.)
-- Menyimpan hasil ke file `.csv`
+### B. Transform
+- Pembersihan data dengan Pandas:
+  - Menghapus karakter non-numerik dari harga dan rating.
+  - Mengganti tipe data ke format numerik.
+- Simpan hasilnya ke `zalora_bags_cleaned.csv`.
 
-### C. Load - PostgreSQL
-- Membuat database dan tabel menggunakan `pgAdmin`
-- Menyesuaikan tipe data SQL dengan struktur di CSV
-- Memasukkan data dari file CSV ke dalam tabel PostgreSQL
-- Jika diperlukan, dilakukan normalisasi data
-
+### C. Load
+- Buat tabel PostgreSQL dengan struktur yang sesuai.
+- Load data CSV ke database menggunakan SQL (DML INSERT).
+- Script dijalankan melalui pgAdmin.
+  
 ---
 
-## 📥 Cara Menjalankan Proyek Ini
-
-1. Clone repositori ini  
-   ```bash
-   git clone https://github.com/nabilajkth/zalora-ecommerce-bag-data-etl.git
-   cd nabilajkth/zalora-ecommerce-bag-data-etl
+## Lisensi
+Proyek ini dibuat untuk tujuan edukasi sebagai bagian dari program Hacktiv8 CODA.
 
 ---
